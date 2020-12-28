@@ -12,43 +12,48 @@ matrix:
     - os: linux
       python: 2.7
       sudo: required
-      env: PYSDL2_DLL_VERSION=2.0.12
+      env: PYSDL2_DLL_VERSION=2.0.14
 
     - os: linux
       python: 3.5
       sudo: required
-      env: PYSDL2_DLL_VERSION=2.0.12
+      env: PYSDL2_DLL_VERSION=2.0.14
 
     - os: linux
       python: 3.6
       sudo: required
-      env: PYSDL2_DLL_VERSION=2.0.12
+      env: PYSDL2_DLL_VERSION=2.0.14
 
     - os: linux
       python: 3.7
       sudo: required
-      env: PYSDL2_DLL_VERSION=2.0.12
+      env: PYSDL2_DLL_VERSION=2.0.14
 
     - os: linux
       python: 3.8
       sudo: required
-      env: PYSDL2_DLL_VERSION=2.0.12
+      env: PYSDL2_DLL_VERSION=2.0.14
+
+    - os: linux
+      python: 3.9
+      sudo: required
+      env: PYSDL2_DLL_VERSION=2.0.14
 
     - os: linux
       python: pypy
       sudo: required
-      env: PYSDL2_DLL_VERSION=2.0.12
+      env: PYSDL2_DLL_VERSION=2.0.14
 
     - os: linux
       python: pypy3
       sudo: required
-      env: PYSDL2_DLL_VERSION=2.0.12
+      env: PYSDL2_DLL_VERSION=2.0.14
 
     - os: linux
       arch: arm64
-      python: 3.8
+      python: 3.9
       sudo: required
-      env: PYSDL2_DLL_VERSION=2.0.12
+      env: PYSDL2_DLL_VERSION=2.0.14
       before_install:
         - echo "deb [arch=arm64] http://ports.ubuntu.com/ubuntu-ports xenial main universe multiverse restricted" | sudo tee -a /etc/apt/sources.list
         - echo "deb-src http://archive.ubuntu.com/ubuntu xenial main universe multiverse restricted" | sudo tee -a /etc/apt/sources.list
@@ -59,9 +64,9 @@ matrix:
 
     - os: linux
       arch: ppc64le
-      python: 3.8
+      python: 3.9
       sudo: required
-      env: PYSDL2_DLL_VERSION=2.0.12
+      env: PYSDL2_DLL_VERSION=2.0.14
       before_install:
         - echo "deb [arch=ppc64le] http://ports.ubuntu.com/ubuntu-ports xenial main universe multiverse restricted" | sudo tee -a /etc/apt/sources.list
         - echo "deb-src http://archive.ubuntu.com/ubuntu xenial main universe multiverse restricted" | sudo tee -a /etc/apt/sources.list
@@ -73,13 +78,13 @@ matrix:
     - name: "Python 3.7 on macOS w/ latest SDL2"
       os: osx
       language: shell
-      env: PYSDL2_DLL_VERSION=2.0.12
+      env: PYSDL2_DLL_VERSION=2.0.14
       before_install: export PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:$PATH"
 
     - name: "Python 2.7 on macOS w/ latest SDL2"
       os: osx
       language: shell
-      env: PYSDL2_DLL_VERSION=2.0.12
+      env: PYSDL2_DLL_VERSION=2.0.14
       before_install: brew link python@2
 
     - name: "Python 3.7 on macOS w/ SDL2 2.0.10"
