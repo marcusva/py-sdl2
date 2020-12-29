@@ -5,6 +5,7 @@ env:
   - SDL_VIDEODRIVER=dummy
   - SDL_AUDIODRIVER=dummy
   - SDL_RENDER_DRIVER=software
+  - PYTHONFAULTHANDLER=1
 
 matrix:
   fast_finish:
@@ -43,15 +44,19 @@ matrix:
       python: pypy
       sudo: required
       env: PYSDL2_DLL_VERSION=2.0.14
+      script:
+        - catchsegv python -B -m pytest -vvl -rxXP
 
     - os: linux
       python: pypy3
       sudo: required
       env: PYSDL2_DLL_VERSION=2.0.14
+      script:
+        - catchsegv python -B -m pytest -vvl -rxXP
 
     - os: linux
       arch: arm64
-      python: 3.9
+      python: 3.8
       sudo: required
       env: PYSDL2_DLL_VERSION=2.0.14
       before_install:
@@ -61,10 +66,12 @@ matrix:
         - sudo apt-get -qq update
         - sudo apt-get build-dep libsdl2 libsdl2-mixer libsdl2-ttf libsdl2-image libsdl2-gfx
         - sudo apt-get install libmpg123-dev libopus-dev pulseaudio
+      script:
+        - catchsegv python -B -m pytest -vvl -rxXP
 
     - os: linux
       arch: ppc64le
-      python: 3.9
+      python: 3.8
       sudo: required
       env: PYSDL2_DLL_VERSION=2.0.14
       before_install:
@@ -74,6 +81,9 @@ matrix:
         - sudo apt-get -qq update
         - sudo apt-get build-dep libsdl2 libsdl2-mixer libsdl2-ttf libsdl2-image libsdl2-gfx
         - sudo apt-get install libmpg123-dev libopus-dev pulseaudio
+      script:
+        - catchsegv python -B -m pytest -vvl -rxXP
+
 
     - name: "Python 3.7 on macOS w/ latest SDL2"
       os: osx
@@ -105,6 +115,7 @@ matrix:
       language: shell
       before_install: 
         - export PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:$PATH" # sets Python to 3.x
+        - brew uninstall libspatialite poppler proj gdal postgis # speeds up next line considerably
         - brew install sdl2 sdl2_mixer sdl2_ttf sdl2_image sdl2_gfx
 
   allow_failures:
