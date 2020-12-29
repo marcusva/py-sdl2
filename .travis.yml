@@ -101,6 +101,7 @@ matrix:
 
     - name: "Python 3.7 on macOS w/ latest Homebrew SDL2"
       os: osx
+      osx_image: xcode12
       language: shell
       before_install: 
         - export PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:$PATH" # sets Python to 3.x
