@@ -115,7 +115,7 @@ matrix:
       language: shell
       before_install: 
         - export PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:$PATH" # sets Python to 3.x
-        - brew uninstall libspatialite poppler proj gdal postgis # speeds up next line considerably
+        - brew uninstall --ignore-dependencies libspatialite poppler proj gdal postgis # speeds up next line considerably
         - brew install sdl2 sdl2_mixer sdl2_ttf sdl2_image sdl2_gfx
 
   allow_failures:
