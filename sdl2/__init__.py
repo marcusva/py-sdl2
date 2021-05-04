@@ -27,6 +27,7 @@ from .power import *
 from .rect import *
 from .render import *
 from .rwops import *
+from .sensor import *
 from .shape import *
 from .stdinc import *
 from .surface import *
@@ -35,6 +36,8 @@ from .timer import *
 from .touch import *
 from .version import *
 from .video import *
+from .locale import *
+from .misc import *
 
 from .keycode import *
 from .scancode import *

@@ -25,6 +25,13 @@ sdl2_urls = {
 }
 
 libversions = {
+    '2.0.14': {
+        'SDL2': '2.0.14',
+        'SDL2_mixer': '2.0.4',
+        'SDL2_ttf': '2.0.15',
+        'SDL2_image': '2.0.5',
+        'SDL2_gfx': '1.0.4'
+    },
     '2.0.12': {
         'SDL2': '2.0.12',
         'SDL2_mixer': '2.0.4',
@@ -131,7 +138,7 @@ def getDLLs(platform_name, version):
         gfxsrc = 'http://www.ferzkopp.net/Software/SDL2_gfx/SDL2_gfx-{0}.tar.gz'
         cfgurl = 'https://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f={0};hb=HEAD'
         basedir = os.getcwd()
-        arch = os.uname().machine
+        arch = os.uname()[-1]
 
         libdir = os.path.join(basedir, 'sdlprefix')
         if os.path.isdir(libdir):
